@@ -76,24 +76,19 @@
       "icon": "icon-archive"
     },
     {
+      "name": "好朋友们",
+      "link": "/friends",
+      "icon": "icon-hearts"
+    },
+    {
       "name": "朋友圈",
       "link": "/gallery",
       "icon": "icon-instagram"
     },
     {
-      "name": "好朋友们",
-      "link": "/friend",
-      "icon": "icon-hearts"
-    },
-    {
       "name": "关于",
       "link": "/about",
       "icon": "icon-ghost"
-    },
-    {
-      "name": "友链",
-      "link": "/friends",
-      "icon": "icon-hearts"
     }
   ],
   "posts": {
