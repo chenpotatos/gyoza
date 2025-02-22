@@ -1,0 +1,50 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import Highlight from '@/components/Highlight.astro'
+import { getAllPicList } from '@/utils/gallery'
+import { GalleryPage } from '@/components/gallery/GalleryPage'
+import type { GetStaticPaths } from 'astro'
+import PostPagination from '@/components/post/PostPagination.astro'
+
+export const getStaticPaths = (async () => {
+  const sortedPosts = await getAllPicList()
+  const perPage = 4
+  const totalPage = Math.ceil(sortedPosts.length / 4)
+
+  const paths = Array.from({ length: totalPage }).map((_, i) => {
+    const data = sortedPosts.slice(i * perPage, (i + 1) * perPage)
+    const props = { currentPage: i + 1, totalPage, data }
+    const params = {
+      gallery: i === 0 ? '1' : `${i + 1}`,
+    }
+    return { params, props }
+  })
+
+  return paths
+}) satisfies GetStaticPaths
+
+const { currentPage, totalPage, data } = Astro.props
+
+const getPageUrl = (page: number) => {
+  if (page === 1) return '/gallery'
+  return `/gallery/${page}`
+}
+---
+
+<PageLayout title="朋友圈">
+  <div class="max-w-[800px] mx-auto px-4 py-16">
+    <header class="space-y-4 mb-8">
+      <h1 class="text-4xl font-bold">
+        <Highlight>朋友圈</Highlight>
+      </h1>
+    </header>
+
+    <GalleryPage list={data} client:only="react" />
+
+    {
+      totalPage > 1 && (
+        <PostPagination current={currentPage} total={totalPage} getPageUrl={getPageUrl} />
+      )
+    }
+  </div>
+</PageLayout>

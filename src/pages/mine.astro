@@ -1,0 +1,58 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import { getCollection, type CollectionEntry } from 'astro:content'
+import Highlight from '@/components/Highlight.astro'
+import MarkdownWrapper from '@/components/MarkdownWrapper.astro'
+import ProjectList from '@/components/ProjectList.astro'
+import { getRandNote } from '@/utils/weread'
+import { RandomText } from '@/components/RandomText'
+
+const specList = await getCollection('spec')
+const { total, sentences } = await getRandNote()
+
+const aboutConetnt: CollectionEntry<'spec'>[] = []
+
+const projects: CollectionEntry<'spec'>[] = []
+
+specList.map((md) => {
+  if (['projects'].includes(md.slug)) {
+    projects.push(md)
+  } else if (['about'].includes(md.slug)) {
+    aboutConetnt.push(md)
+  }
+
+  return {
+    props: {
+      md,
+    },
+  }
+})
+
+const { Content } = await aboutConetnt[0].render()
+---
+
+<PageLayout title="我" description={'这是一个简单的页面'}>
+  <div class="max-w-[800px] mx-auto px-4 py-16 space-y-8">
+    <header class="space-y-4">
+      <h1 class="text-4xl font-bold">
+        <Highlight>关于我以及我的项目</Highlight>
+      </h1>
+
+      <RandomText sentences={sentences} total={total} client:only />
+    </header>
+
+    {
+      aboutConetnt.length > 0 && (
+        <MarkdownWrapper>
+          <Content />
+        </MarkdownWrapper>
+      )
+    }
+
+    <h1 class="text-4xl font-bold">
+      <Highlight>我的项目</Highlight>
+    </h1>
+
+    <ProjectList />
+  </div>
+</PageLayout>

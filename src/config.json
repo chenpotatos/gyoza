@@ -1,0 +1,129 @@
+{
+  "site": {
+    "url": "https://otkasu.pages.dev",
+    "title": "Landing Page",
+    "description": "这是一个使用 Astro 和 React 开发的博客主题。",
+    "keywords": "Gyoza,blog,Astro,theme,lxchapu,博客主题",
+    "lang": "zh-CN",
+    "favicon": "/favicon.ico",
+    "appleTouchIcon": "/apple-touch-icon.png"
+  },
+  "author": {
+    "name": "Otkasu",
+    "twitterId": "",
+    "avatar": "https://img.picui.cn/free/2025/02/10/67a97f718d858.jpg"
+  },
+  "hero": {
+    "name": "Otkasu",
+    "bio": "A Stuedent Developer",
+    "description": "生活明朗，万物可爱。",
+    "socials": [
+      {
+        "name": "Github",
+        "icon": "icon-github",
+        "url": "https://github.com/chenpotatos",
+        "color": "rgb(24, 23, 23)"
+      },
+      {
+        "name": "X",
+        "icon": "icon-x",
+        "url": "https://twitter.com/",
+        "color": "rgb(36, 46, 54)"
+      },
+      {
+        "name": "Email",
+        "icon": "icon-mail",
+        "url": "mailto:ohlinj2021@outlook.com",
+        "color": "rgb(212, 70, 56)"
+      }
+    ],
+    "yiyan": "遇事不决可问春风，春风不语即随本心。"
+  },
+  "color": {
+    "accent": [
+      { "light": "#F55555", "dark": "#FCCF31" },
+      { "light": "#0396FF", "dark": "#ABDCFF" },
+      { "light": "#fb7287", "dark": "#99D8CF" },
+      { "light": "#F072B6", "dark": "#FFF886" },
+      { "light": "#9F44D3", "dark": "#E2B0FF" },
+      { "light": "#FF6666", "dark": "#A1CCD1" },
+      { "light": "#F6416C", "dark": "#838BC6" },
+      { "light": "#32CCBC", "dark": "#90F7EC" },
+      { "light": "#33A6B8", "dark": "#79F1A4" },
+      { "light": "#F55555", "dark": "#FCCF31" }
+    ],
+    "bg": {
+      "primary": { "light": "#ffffff", "dark": "#1c1c1e" },
+      "secondary": { "light": "#f4f4f5", "dark": "#27272a" }
+    },
+    "text": {
+      "primary": { "light": "#373a3c", "dark": "#ffffff" },
+      "secondary": { "light": "#71717a", "dark": "#d1d5db" }
+    },
+    "border": {
+      "primary": { "light": "#e4e4e7", "dark": "#3f3f46" }
+    }
+  },
+  "menus": [
+    {
+      "name": "首页",
+      "link": "/",
+      "icon": "icon-pantone"
+    },
+    {
+      "name": "归档",
+      "link": "/archives",
+      "icon": "icon-archive"
+    },
+    {
+      "name": "项目",
+      "link": "/projects",
+      "icon": "icon-flask"
+    },
+    {
+      "name": "朋友圈",
+      "link": "/gallery",
+      "icon": "icon-instagram"
+    },
+    {
+      "name": "好朋友们",
+      "link": "/friend",
+      "icon": "icon-hearts"
+    },
+    {
+      "name": "关于",
+      "link": "/about",
+      "icon": "icon-ghost"
+    },
+    {
+      "name": "友链",
+      "link": "/friends",
+      "icon": "icon-hearts"
+    }
+  ],
+  "posts": {
+    "perPage": 10
+  },
+  "footer": {
+    "startTime": "2024-04-14T00:00:00Z"
+  },
+  "waline": {
+    "serverURL": ""
+  },
+  "sponsor": {
+    "wechat": ""
+  },
+  "analytics": {
+    "enable": true,
+    "google": {
+      "measurementId": ""
+    },
+    "umami": {
+      "serverUrl": "https://umami.otkasu.us.kg",
+      "websiteId": "96cfed72-1269-42dd-bc54-5551cc0a1cde"
+    },
+    "microsoftClarity": {
+      "projectId": ""
+    }
+  }
+}

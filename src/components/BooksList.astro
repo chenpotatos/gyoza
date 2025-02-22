@@ -1,0 +1,51 @@
+---
+import { getRelativeTime } from '@/utils/date'
+
+interface Props {
+  books: {
+    cover: string
+    author: string
+    progress: string
+    lastReadDate: Date
+    readingTime: string
+    totalReadDay: number
+    isbn: number
+    id: string
+    slug: string
+  }[]
+}
+
+const { books } = Astro.props
+---
+
+<div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+  {
+    books.map((book) => {
+      return (
+        <a href={`/books/${book.slug}`}>
+          <div class="mt-5 p-2 relative flex rounded-lg border-blue-200 border-2 hover:cursor-pointer">
+            <img class="w-24" src={book.cover} />
+            <div class="p-2">
+              <p class="font-bold text-purple-600">{book.author}</p>
+              <div class="text-sm flex flex-row justify-start items-center gap-1">
+                <div class=" w-4 h-4 bg-[#66BB6A] rounded-full animate-breath" />
+                {parseInt(book.progress) < 100 ? (
+                  <span class="text-green-600">在读</span>
+                ) : (
+                  <span>完结</span>
+                )}
+              </div>
+              <p class="text-sm">阅读了{book.totalReadDay}天</p>
+              <p class="text-sm">{getRelativeTime(book.lastReadDate)}</p>
+              <p class="text-sm text-gray-500">{book.isbn}</p>
+            </div>
+            <div
+              style={`opacity: 88%;opacity: ${book.progress == '-1' ? '10%' : book.progress}`}
+              class="w-full h-full absolute top-0 left-0 bg-accent/10 -z-1"
+            />
+          </div>
+        </a>
+      )
+    })
+  }
+</div>
